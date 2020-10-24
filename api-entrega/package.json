@@ -1,0 +1,16 @@
+{
+  "name": "api-entrega",
+  "version": "1.0.0",
+  "description": "entrega da atividade que é revisão dos APIs (post,put, patch e delete). ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "author": "Rebeca Coelho",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.6"
+  }
+}
