@@ -107,6 +107,24 @@ const collabTask = (request, response) => {
 
     }
 }
+
+//DELETE
+const deletetask = (request, response)=>{
+    const { id } = request.params
+    const filteredTask = taskModels.find(task => task.id == id)
+
+    if (filteredTask.done == true) {
+        response.status(400).json({
+            message: "impossible delete completed tasks"
+        })
+    } else {
+    const index = taskModels.indexOf(filteredTask)
+    taskModels.splice(index, 1)
+
+    response.json({mensagem: "task successfully deleted"})
+    }
+}
+
 module.exports = {
     getAll,
     getById,
@@ -115,7 +133,8 @@ module.exports = {
     addTask,
     updateTask,
     doneTask,
-    collabTask
+    collabTask,
+    deletetask
 }
 
 

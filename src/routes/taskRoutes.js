@@ -67,7 +67,13 @@ router.patch("/false/:id", controller.doneTask)
 **/
 router.patch("/false/collab/:id", controller.collabTask)
 
-//router.delete("/:id", controller.deletarTarefa)
+/**
+@route DELETE /:id
+@desc delete task
+@access Public 
+@endpoint http://localhost:8080/tasks/:id
+**/
+router.delete("/:id", controller.deletetask)
 
 module.exports = router
 
