@@ -1,0 +1,25 @@
+{
+  "name": "on9-accenture-s11-api-exercicios",
+  "version": "1.0.0",
+  "description": "projeto de api",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raphaelaromao/On9-Accenture-S11-API-EXERCICIOS.git"
+  },
+  "author": "Raphaela Romão",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/raphaelaromao/On9-Accenture-S11-API-EXERCICIOS/issues"
+  },
+  "homepage": "https://github.com/raphaelaromao/On9-Accenture-S11-API-EXERCICIOS#readme"
+}
