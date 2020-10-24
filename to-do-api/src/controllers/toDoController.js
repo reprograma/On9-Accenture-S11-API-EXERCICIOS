@@ -6,7 +6,31 @@ const getAll = (request, response) => {
   response.status(200).send(tarefasModels);
 };
 
+//GET
+const obterPorId = (requisicao, resposta) => {
+  const { id } = requisicao.params;
+  const tarefa = tarefasModels.find((tarefa) => tarefa.id == id);
 
+  resposta.json(tarefa);
+};
+
+//GET
+const obterConcluidas = (requisicao, resposta) => {
+  const tarefasConcluidas = tarefasModels.filter(
+    (tarefa) => tarefa.concluido == true
+  );
+
+  resposta.status(200).json(tarefasConcluidas);
+};
+
+//GET
+const obterPendentes = (requisicao, resposta) => {
+  const tarefasPendentes = tarefasModels.filter(
+    (tarefa) => tarefa.concluido == false
+  );
+
+  resposta.status(200).json(tarefasPendentes);
+};
 
 //POST
 const criarTarefa = (request, response) => {
@@ -76,6 +100,9 @@ const deletarTarefa = (request, response) => {
 
 module.exports = {
   getAll,
+  obterPorId,
+  obterConcluidas,
+  obterPendentes,
   criarTarefa,
   atualizarTarefa,
   concluirTarefa,

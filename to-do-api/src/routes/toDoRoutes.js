@@ -12,6 +12,30 @@ const toDoController = require("../controllers/toDoController");
 router.get("/", toDoController.getAll);
 
 /**
+@route GET tarefas/:id
+@desc Retornar apenas uma única tarefa pelo seu id
+@access Public 
+@endpoint http://localhost:porta/tarefas/:id 
+**/
+router.get("/:id", toDoController.obterPorId);
+
+/**
+@route GET tarefas/concluidas
+@desc Retornar apenas as tarefas concluídas
+@access Public 
+@endpoint http://localhost:porta/tarefas/concluidas
+**/
+router.get("/status/concluidas", toDoController.obterConcluidas);
+
+/**
+@route GET tarefas/naoconcluidas
+@desc Retornar apenas as tarefas não concluídas
+@access Public 
+@endpoint http://localhost:porta/tarefas/naoconcluidas
+**/
+router.get("/status/naoconcluidas", toDoController.obterPendentes);
+
+/**
 @route POST tarefa
 @desc Criar uma tarefa
 @access Public 
