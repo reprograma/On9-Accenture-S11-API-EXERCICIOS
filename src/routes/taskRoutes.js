@@ -51,7 +51,21 @@ router.post("/add", controller.addTask)
 **/
 router.put("/:id", controller.updateTask)
 
-//router.patch("/naoconcluidas/:id", controller.conclu
+/**
+@route PATCH false/:id
+@desc task completed
+@access Public 
+@endpoint http://localhost:8080/tasks/false/:id
+**/
+router.patch("/false/:id", controller.doneTask)
+
+/**
+@route PATCH false/collab/:id
+@desc update collab
+@access Public 
+@endpoint http://localhost:8080/tasks/false/collab/:id
+**/
+router.patch("/false/collab/:id", controller.collabTask)
 
 //router.delete("/:id", controller.deletarTarefa)
 
