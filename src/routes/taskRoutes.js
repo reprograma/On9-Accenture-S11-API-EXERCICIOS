@@ -35,7 +35,13 @@ router.get("/false", controller.getByFalse);
 **/
 router.get("/:id", controller.getById);
 
-//router.post("/cadastro", controller.criarTarefa)
+/**
+@route POST tasks/:id
+@desc Create a new task
+@access Public 
+@endpoint http://localhost:8080/tasks/add
+**/
+router.post("/add", controller.addTask)
 
 //router.put("/editar/:id", controller.atualizarTarefa)
 

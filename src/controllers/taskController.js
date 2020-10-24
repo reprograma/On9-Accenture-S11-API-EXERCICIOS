@@ -26,13 +26,29 @@ const getByFalse = (request, response) => {
     response.status(200).json(doneFalse)
 }
 
+const addTask = (request, response)=>{
+    let { description, collab } = request.body
+    
+    const newTask ={
+        id: Math.random().toString(32).substr(2,9),
+        inclusionDate: new Date().toString(),
+        done: false,
+        description: description,
+        collab: collab
+    }
+
+    taskModels.push(newTask);
+
+    response.status(201).json(newTask)
+}
 
 
 module.exports ={
     getAll,
     getById,
     getByTrue,
-    getByFalse
+    getByFalse,
+    addTask
 }
 
 
