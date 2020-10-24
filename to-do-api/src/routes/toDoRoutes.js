@@ -60,6 +60,14 @@ router.put("/editar/:id", toDoController.atualizarTarefa); //lembrar de editar o
 router.patch("/naoconcluidas/:id", toDoController.concluirTarefa); //lembrar de editar somente o concluido no body
 
 /**
+@route PATCH tarefa
+@desc Atualizar o responsável pela tarefa
+@access Public 
+@endpoint http://localhost:porta/tarefas/naoconcluidas/colaborador/:id
+**/
+router.patch("/naoconcluidas/colaborador/:id", toDoController.mudarResponsavel); //lembrar de editar somente o colaborador no body
+
+/**
 @route DELETE tarefa
 @desc Deletar uma tarefa pelo seu identificador
 @access Public 

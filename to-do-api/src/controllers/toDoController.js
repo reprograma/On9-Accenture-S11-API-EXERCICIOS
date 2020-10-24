@@ -53,7 +53,7 @@ const atualizarTarefa = (request, response) => {
   const { id } = request.params;
   const { concluido, descricao, nomeColaborador } = request.body;
 
-  const tarefaAtualizada = tarefasModels.find((tarefa) => (tarefa.id = id));
+  const tarefaAtualizada = tarefasModels.find((tarefa) => tarefa.id == id);
 
   if (tarefaAtualizada.concluido == true) {
     response.json({ Error: "Impossível atualizar tarefas concluídas." });
@@ -80,8 +80,27 @@ const concluirTarefa = (request, response) => {
 
   const tarefa = tarefasModels.find((tarefa) => tarefa.id == id);
 
-  tarefa.concluido = concluido;
-  response.status(200).json(tarefa);
+  if (tarefa.concluido == true) {
+    response.json({ Error: "Impossível atualizar tarefas concluídas." });
+  } else {
+    tarefa.concluido = concluido;
+    response.status(200).json(tarefa);
+  }
+};
+
+//PATCH responsável
+const mudarResponsavel = (request, response) => {
+  const { id } = request.params;
+  const { nomeColaborador } = request.body;
+
+  const tarefa = tarefasModels.find((tarefa) => tarefa.id == id);
+
+  if (tarefa.concluido == true) {
+    response.json({ Error: "Impossível atualizar tarefas concluídas." });
+  } else {
+    tarefa.nomeColaborador = nomeColaborador;
+    response.status(200).json(tarefa);
+  }
 };
 
 //DELETE
@@ -105,6 +124,7 @@ module.exports = {
   obterPendentes,
   criarTarefa,
   atualizarTarefa,
+  mudarResponsavel,
   concluirTarefa,
   deletarTarefa,
 };
