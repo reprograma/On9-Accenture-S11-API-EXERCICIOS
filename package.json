@@ -1,0 +1,24 @@
+{
+  "name": "on9-accenture-s11-api-exercicios",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mariana-franca/On9-Accenture-S11-API-EXERCICIOS.git"
+  },
+  "author": "Mariana Franca",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mariana-franca/On9-Accenture-S11-API-EXERCICIOS/issues"
+  },
+  "homepage": "https://github.com/mariana-franca/On9-Accenture-S11-API-EXERCICIOS#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.6"
+  }
+}
