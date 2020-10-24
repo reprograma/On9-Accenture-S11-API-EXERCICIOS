@@ -26,6 +26,7 @@ const getByFalse = (request, response) => {
     response.status(200).json(doneFalse)
 }
 
+//POST
 const addTask = (request, response)=>{
     let { description, collab } = request.body
     
@@ -42,13 +43,35 @@ const addTask = (request, response)=>{
     response.status(201).json(newTask)
 }
 
+//PUT
+const updateTask = (request, response) =>{
+    const { id } = request.params;
+    const { done, description, collab } = request.body
 
+    const updatedTask = taskModels.find(task => task.id == id) 
+
+    const newTask = { 
+        id: updatedTask.id, 
+        inclusionDate: updatedTask.inclusionDate,
+        done: done,
+        description: description, 
+        collab: collab 
+    }
+
+    const index = taskModels.indexOf(updatedTask) 
+
+    taskModels[index] = newTask 
+
+    response.status(200).json(taskModels[index])
+
+}
 module.exports ={
     getAll,
     getById,
     getByTrue,
     getByFalse,
-    addTask
+    addTask,
+    updateTask
 }
 
 

@@ -43,9 +43,15 @@ router.get("/:id", controller.getById);
 **/
 router.post("/add", controller.addTask)
 
-//router.put("/editar/:id", controller.atualizarTarefa)
+/**
+@route PUT tasks/:id
+@desc Update task
+@access Public 
+@endpoint http://localhost:8080/tasks/:id
+**/
+router.put("/:id", controller.updateTask)
 
-//router.patch("/naoconcluidas/:id", controller.concluirTarefa)
+//router.patch("/naoconcluidas/:id", controller.conclu
 
 //router.delete("/:id", controller.deletarTarefa)
 
