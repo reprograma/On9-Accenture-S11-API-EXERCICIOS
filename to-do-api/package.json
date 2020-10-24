@@ -1,13 +1,13 @@
 {
   "name": "to-do-api",
   "version": "1.0.0",
-  "description": "Api de tarefas para projeto da reprograma",
-  "main": "server.js",
+  "description": "API de tarefas para projeto da reprograma",
+  "main": "serve.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js"
   },
-  "author": "Turma on9",
+  "author": "Manoela Paloma",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
