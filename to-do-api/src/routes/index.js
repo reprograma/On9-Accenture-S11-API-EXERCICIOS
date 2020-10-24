@@ -1,12 +1,14 @@
-const express = require("express") //chama express
-const router = express.Router() //executa função router
+const express = require("express");
 
-router.get("/", function (request, response){ //usa o verbo GET, escreve a rota, coloca a função de resposta
-    response.status(200).send({ //manda status 200 e enviando um objeto 
-        titulo: "Projeto To-Do Turma On9",
-        versao: "1.0.0",
-        mensagem: "Analu é de mais"
-    })
-})
+const router = express.Router();
 
-module.exports = router //exportando as rotas criadas
+router.get("/", function (request, res) {
+
+  res.status(200).send({
+    titulo: "Projeto To-Do Turma 09",
+    versao: "1.0.0",
+    mesnsagem: "Analu ensina muito",
+  });
+});
+
+module.exports = router;
