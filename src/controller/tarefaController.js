@@ -26,7 +26,7 @@ const atualizarTarefa = (request, response) => {
   const { id } = request.params; //pega o ID na URL
 
   //vai pegar da url os dados enviados pelo usuário
-  const { concluido, descricao, nomeColaborador } = rerquest.body;
+  const { concluido, descricao, nomeColaborador } = request.body;
 
   const tarefaAtualizada = tarefaModels.find((tarefa) => tarefa.id == id); //procura a tarefa de acordo com o id passado na url
 
@@ -88,7 +88,7 @@ const concluirTarefaColaborador = (request, response) => {
   const { id } = request.params; //pega o ID na URL
 
   //vai pegar da url os dados enviados pelo usuário
-  const { nomeColaborador } = rerquest.body;
+  const { nomeColaborador } = request.body;
 
   const tarefaColaboradorAtualizada = tarefaModels.find(
     (tarefa) => tarefa.id == id
