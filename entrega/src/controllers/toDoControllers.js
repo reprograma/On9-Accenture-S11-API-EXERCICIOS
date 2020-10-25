@@ -19,7 +19,6 @@ const getByID = function (request, response) {
 }
 
 /*   POST   */
-
 const createTask = (request, response) => {
     const { descricao, nomeColaborador } = request.body;
 
@@ -59,12 +58,62 @@ const updateTask = (request, response) => {
     });
 }
 
+/*  PATCH  */
+const updateStatus = (request, response) => {
+    const { id } = request.params;
+    const { concluido } = request.body;
+    const task = tasksModels.find(task => task.id == id);
+
+    if (task.concluido == false) {
+        task.concluido = concluido;
+        response.status(200).json({
+            Mensagem: `Campo atualizado com sucesso`,
+            task
+        });
+    } else {
+        response.status(401).send(`Você não pode alterar campos de tarefas que já foram concluídas`);
+    }
+
+}
+const updateColaborator = (request, response) => {
+    const { id } = request.params;
+    const { nomeColaborador } = request.body;
+
+    const task = tasksModels.find(task => task.id == id);
+    if (task.concluido == false) {
+        task.nomeColaborador = nomeColaborador;
+        response.status(200).send(task)
+    } else {
+        response.status(401).json({ mensagem: `Você não pode alterar o colaborador de tarefas que já foram concluídas` })
+    }
+}
+
+const deleteTask = (request, response) => {
+    const { id } = request.params;
+    const task = tasksModels.find(task => task.id == id);
+    const index = tasksModels.indexOf(task);
+
+    if (task.concluido == false) {
+        tasksModels.splice(index, 1);
+        response.status(200).json({
+            mensagem: `Tarefa deletada com sucesso`,
+            tasksModels
+        })
+
+    } else {
+        response.status(401).json({ Erro: `Você não pode deletar tarefas já concluídas` })
+    }
+}
+
 module.exports = {
     getAllTasks,
     getFinishedTasks,
     getUnfinishedTasks,
     getByID,
     createTask,
-    updateTask
+    updateTask,
+    updateStatus,
+    updateColaborator,
+    deleteTask    
 
 }
