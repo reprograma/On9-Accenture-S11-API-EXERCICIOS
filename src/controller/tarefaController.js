@@ -1,6 +1,6 @@
 const tarefaModels = require("../models/tarefas.json");
 
-const getAll = (response, request) => {
+const getAll = (request, response) => {
   response.status(200).send(tarefaModels);
 };
 
