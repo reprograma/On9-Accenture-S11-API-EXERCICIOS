@@ -119,13 +119,13 @@ const deletarTarefa = (request, response) => {
   const { id } = request.params;
 
   //para filtrar com o models e encontrar o primeiro objeto com o parametro colocado na url
-  const tarefaFilstrada = tarefaModels.find((tarefa) => tarefa.id == id);
+  const tarefaFiltrada = tarefaModels.find((tarefa) => tarefa.id == id);
 
   if (tarefaFiltrada.concluido == true) {
     response.json({ Erro: "Impossível deletar tarefas concluidas" });
   } else {
     //precisamos adicionar um index porque o splice precisa do index para apagar corretamente.
-    const index = tarefaModels.indexOf(tarefaFilstrada);
+    const index = tarefaModels.indexOf(tarefaFiltrada);
     tarefaModels.splice(index, 1);
 
     response.json({ messagem: "Tarefa deletada com sucesso." });
