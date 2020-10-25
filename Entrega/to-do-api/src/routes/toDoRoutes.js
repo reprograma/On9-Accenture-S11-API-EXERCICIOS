@@ -7,7 +7,9 @@ router.get("/", controller.getAll)
 
 router.get("/:id", controller.getById)
 
-router.get("/", controller)
+router.get("/tarefaConcluida", controller.getTarefaConcluida)
+
+router.get("/tarefaNaoConcluida", controller.getTarefaNaoConcluida)
 
 router.post("/cadastro", controller.criarTarefa)
 
